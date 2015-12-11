@@ -1,0 +1,6 @@
+batch
+
+module add --name=org.postgresql --resources=/tmp/psql-jdbc.jar --dependencies=javax.api,javax.transaction.api
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-class-name=org.postgresql.Driver)
+
+run-batch

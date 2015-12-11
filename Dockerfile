@@ -14,4 +14,4 @@ RUN rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/cu
 
 EXPOSE 8080 8080
 
-RUN ["/opt/jboss/wildfly/customization/execute.sh"]
+CMD ["/opt/jboss/wildfly/customization/execute.sh"]

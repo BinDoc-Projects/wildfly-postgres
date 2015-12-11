@@ -11,6 +11,7 @@ function wait_for_wildfly() {
 	done
 }
 
+echo "Configuring wildfly..."
 echo "==> Starting WildFly..."
 $JBOSS_HOME/bin/$JBOSS_MODE.sh -c $JBOSS_CONFIG > /dev/null &
 
@@ -26,3 +27,4 @@ if [ "$JBOSS_MODE" = "standalone" ]; then
 else
 	$JBOSS_CLI -c "/host=*:shutdown"
 fi
+echo "Added Postgres-Driver to Wildfly"

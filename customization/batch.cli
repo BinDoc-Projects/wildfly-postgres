@@ -2,5 +2,7 @@ batch
 
 module add --name=org.postgresql --resources=/tmp/psql-jdbc.jar --dependencies=javax.api,javax.transaction.api
 /subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-class-name=org.postgresql.Driver)
+xa-data-source add --name=PostgresXADS --driver-name=postgresql --jndi-name="java:jboss/datasources/postgres" --enabled=true --use-ccm=true --user-name=postgres --xa-datasource-class=org.postgresql.xa.PGXADataSource --xa-datasource-properties=[{url=jdbc:postgresql://127.0.0.1:5432/bda_benchmarking}]
+
 
 run-batch

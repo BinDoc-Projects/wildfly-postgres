@@ -1,6 +1,34 @@
 # Docker Container for linkable Postgres in Wildfly.
 Wildfly Docker container. Linkable to the postgres container.
 
+## How to use
+To use this container just run:
+
+``` 
+docker run --link postgres-container:postgres --name <name> mheider/wildfly-postgres
+```
+
+### With own .war file
+To run the container with own war file just create a ```Dockerfile``` with following content:
+
+```
+FROM mheider/wildfly-postgres
+ADD myapplication.war /opt/jboss/wildfly/standalone/deplyments/myapplication.war
+```
+
+After that build the image:
+
+```
+docker build --tag myapplication .
+```
+
+and run it afterwards:
+
+```
+docker run -it --link postgres-container:postgres --name myapplication myapplication
+```
+
+
 ##LICENSE
 The MIT License (MIT)
 

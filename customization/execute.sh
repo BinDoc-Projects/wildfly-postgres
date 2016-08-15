@@ -30,7 +30,7 @@ echo "=> Postgres (docker port): " $POSTGRES_PORT_5432_TCP_PORT
 $JBOSS_CLI -c << EOF
 xa-data-source remove --name=PostgresXADS
 
-xa-data-source add --name=PostgresXADS --driver-name=postgresql --jndi-name="java:jboss/datasources/postgres" --enabled=true --use-ccm=true --user-name=postgres --xa-datasource-class=org.postgresql.xa.PGXADataSource --xa-datasource-properties=[{url=jdbc:postgresql://$POSTGRES_PORT_5432_TCP_ADDR:$POSTGRES_PORT_5432_TCP_PORT/bda_benchmarking}]
+xa-data-source add --name=PostgresXADS --driver-name=postgresql --jndi-name="java:jboss/datasources/postgres" --enabled=true --use-ccm=true --user-name=postgres --xa-datasource-class=org.postgresql.xa.PGXADataSource --xa-datasource-properties=[{url=jdbc:postgresql://$POSTGRES_PORT_5432_TCP_ADDR:$POSTGRES_PORT_5432_TCP_PORT/reports}]
 
 EOF
 
